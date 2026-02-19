@@ -12,6 +12,17 @@
 .title {
   font-size: 1.25rem;
   font-weight: 500;
+  will-change: transform, opacity;
+}
+.titleHidden {
+  opacity: 0;
+  transform: translateX(80vw);
+  transition: transform 1.4s cubic-bezier(.77,0,.18,1), opacity 1s;
+}
+.titleIn {
+  opacity: 1;
+  transform: translateX(0);
+  transition: transform 1.4s cubic-bezier(.77,0,.18,1), opacity 1s;
 }
 .list {
   margin-top: 1rem;
@@ -24,5 +35,17 @@
   border-radius: 9999px;
   background: #f3f4f6;
   font-size: 0.875rem;
-  color: #374151; /* gray-700 */
+  color: #374151;
+  display: inline-block;
+  will-change: transform, opacity;
+}
+.itemHidden {
+  opacity: 0;
+  transform: translateX(-60vw);
+  transition: transform 1.4s cubic-bezier(.77,0,.18,1), opacity 1s;
+}
+.itemIn {
+  opacity: 1;
+  transform: translateX(0);
+  transition: transform 1.4s cubic-bezier(.77,0,.18,1), opacity 1s;
 }
