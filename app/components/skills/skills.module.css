@@ -1,0 +1,28 @@
+.section {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+.container {
+  max-width: 48rem; /* 3xl */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+.title {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+.list {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.item {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background: #f3f4f6;
+  font-size: 0.875rem;
+  color: #374151; /* gray-700 */
+}

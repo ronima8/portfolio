@@ -1,0 +1,19 @@
+.section {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+.container {
+  max-width: 48rem; /* 3xl */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.text {
+  margin-top: 1rem;
+  color: #4b5563; /* gray-600 */
+}
