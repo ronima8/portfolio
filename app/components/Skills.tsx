@@ -2,7 +2,24 @@
 
 import { useRef, useEffect, useState } from "react";
 
-const skills = ["React", "Next.js", "TypeScript", "Tailwind CSS", "Node.js"];
+const skills = [
+  {
+    category: "Языки",
+    items: ["JavaScript", "TypeScript", "HTML", "CSS"]
+  },
+  {
+    category: "Фреймворки и библиотеки",
+    items: ["React", "Next.js", "Node.js", "Nest.js", "TypeORM", "Tailwind CSS", "Axios", "Zustand"]
+  },
+  {
+    category: "Базы данных",
+    items: ["PostgreSQL"]
+  },
+  {
+    category: "Инструменты и практики",
+    items: ["Git", "GitHub", "Docker", "Nginx", "REST API", "JWT", "ESLint", "Prettier", "Playwright", "Vitest", "Jest"]
+  }
+];
 
 export default function Skills() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -37,19 +54,30 @@ export default function Skills() {
           >
             Навыки
           </h3>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {skills.map((s, i) => (
-              <span
-                key={s}
-                className={`inline-block px-3 py-1 rounded-full bg-gray-950/70 border border-emerald-400/30 text-sm text-gray-200 transition-all duration-700 ease-out transform-gpu will-change-transform ${
-                  visible
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-16"
+          <div className="mt-5 space-y-5">
+            {skills.map((group, groupIndex) => (
+              <div
+                key={group.category}
+                className={`transition-all duration-700 ease-out transform-gpu will-change-transform ${
+                  visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
                 }`}
-                style={visible ? { transitionDelay: `${0.6 + i * 0.3}s` } : {}}
+                style={visible ? { transitionDelay: `${0.15 + groupIndex * 0.2}s` } : {}}
               >
-                {s}
-              </span>
+                <h4 className="text-sm font-semibold text-emerald-200 mb-2">{group.category}</h4>
+                <div className="flex flex-wrap gap-2">
+                  {group.items.map((item, itemIndex) => (
+                    <span
+                      key={item}
+                      className={`inline-block px-3 py-1 rounded-full bg-gray-950/70 border border-emerald-400/30 text-sm text-gray-200 transition-all duration-700 ease-out transform-gpu will-change-transform ${
+                        visible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-16"
+                      }`}
+                      style={visible ? { transitionDelay: `${0.3 + groupIndex * 0.2 + itemIndex * 0.05}s` } : {}}
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </div>

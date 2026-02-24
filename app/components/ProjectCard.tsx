@@ -80,7 +80,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
               rel="noreferrer" 
               className="px-4 py-2 border border-emerald-400/40 rounded-sm text-sm text-emerald-200 hover:bg-emerald-500/10 transition-colors"
             >
-              GitLab
+              Репозиторий
             </a>
           )}
           {project.href && (
