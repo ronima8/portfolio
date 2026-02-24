@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import emailjs from "@emailjs/browser";
 
@@ -42,9 +42,7 @@ const ContactForm = () => {
     openedAtRef.current = Date.now();
   }, []);
 
-  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = e.target as HTMLFormElement;
+  const onSubmit = async (form: HTMLFormElement) => {
     const data = new FormData(form);
     const name = data.get("name")?.toString().trim();
     const email = data.get("email")?.toString().trim();
@@ -116,7 +114,13 @@ const ContactForm = () => {
       <div className="max-w-2xl mx-auto px-6">
         <div className="bg-gray-900/80 border border-gray-800 rounded-sm backdrop-blur-sm px-6 py-8">
           <h3 className="text-xl font-medium text-emerald-300">{t("title")}</h3>
-          <form onSubmit={onSubmit} className="mt-4 flex flex-col gap-3">
+          <form
+            onSubmit={(event) => {
+              event.preventDefault();
+              void onSubmit(event.currentTarget);
+            }}
+            className="mt-4 flex flex-col gap-3"
+          >
             <input name="name" required maxLength={100} placeholder={t("namePlaceholder")} className="border border-gray-800 rounded-sm bg-gray-950/70 px-3 py-2 text-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-400/40" />
             <input name="email" required type="email" inputMode="email" maxLength={254} placeholder={t("emailPlaceholder")} className="border border-gray-800 rounded-sm bg-gray-950/70 px-3 py-2 text-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-400/40" />
             <textarea name="message" required minLength={10} maxLength={2500} rows={4} placeholder={t("messagePlaceholder")} className="border border-gray-800 rounded-sm bg-gray-950/70 px-3 py-2 text-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-400/40" />
@@ -125,7 +129,7 @@ const ContactForm = () => {
               tabIndex={-1}
               autoComplete="off"
               aria-hidden="true"
-              className="absolute -left-2499.75 top-auto w-px h-px opacity-0 pointer-events-none"
+              className="absolute left-[-9999px] top-auto w-px h-px opacity-0 pointer-events-none"
             />
             <div className="flex items-center gap-4">
               <button

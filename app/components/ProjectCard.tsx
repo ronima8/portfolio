@@ -4,7 +4,12 @@ import { useRef, useEffect, useState } from "react";
 import type { Project } from "../../types/project";
 import { useTranslations } from "next-intl";
 
-export default function ProjectCard({ project, index }: { project: Project; index: number }) {
+type ProjectCardProps = Readonly<{
+  project: Project;
+  index: number;
+}>;
+
+export default function ProjectCard({ project, index }: ProjectCardProps) {
   const cardRef = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
   const t = useTranslations("ProjectCard");
@@ -26,13 +31,15 @@ export default function ProjectCard({ project, index }: { project: Project; inde
   }, []);
 
   const isEven = index % 2 === 0;
+  const localizedTitle = t(`items.${project.id}.title`);
+  const localizedDescription = t(`items.${project.id}.description`);
+  const imageSrc = project.image ?? "/images/project-placeholder.svg";
 
   return (
     <article 
       ref={cardRef}
       className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-16"
     >
-      {/* Карточка с информацией */}
       <div 
         className={`
           transition-all duration-700 ease-out transform-gpu will-change-transform
@@ -41,10 +48,9 @@ export default function ProjectCard({ project, index }: { project: Project; inde
           ${!isEven ? "lg:order-2" : ""}
         `}
       >
-        <h3 className="text-2xl font-bold mb-3 text-emerald-300">{t(`items.${project.id}.title`)}</h3>
-        <p className="text-gray-300 mb-6 leading-relaxed">{t(`items.${project.id}.description`)}</p>
+        <h3 className="text-2xl font-bold mb-3 text-emerald-300">{localizedTitle}</h3>
+        <p className="text-gray-300 mb-6 leading-relaxed">{localizedDescription}</p>
         
-        {/* Технологии по категориям */}
         <div className="space-y-4 mb-6">
           {project.tech.map((category) => (
             <div key={category.name}>
@@ -63,7 +69,6 @@ export default function ProjectCard({ project, index }: { project: Project; inde
           ))}
         </div>
 
-        {/* Ссылки */}
         <div className="flex gap-4 flex-wrap">
           {project.presentation && (
             <a 
@@ -98,7 +103,6 @@ export default function ProjectCard({ project, index }: { project: Project; inde
         </div>
       </div>
 
-      {/* Изображение проекта */}
       <div 
         className={`
           transition-all duration-700 ease-out transform-gpu will-change-transform
@@ -108,8 +112,8 @@ export default function ProjectCard({ project, index }: { project: Project; inde
       >
         <div className="rounded-sm overflow-hidden shadow-md bg-gray-950/70 border border-gray-800 aspect-video">
           <img 
-            src={project.image} 
-            alt={project.title} 
+            src={imageSrc} 
+            alt={localizedTitle} 
             className="w-full h-full object-cover"
           />
         </div>
