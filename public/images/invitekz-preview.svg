@@ -1,0 +1,41 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <rect width="1200" height="675" fill="url(#gradient)"/>
+  <defs>
+    <linearGradient id="gradient" x1="0" y1="0" x2="1200" y2="675" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#667eea"/>
+      <stop offset="1" stop-color="#764ba2"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Grid pattern -->
+  <g opacity="0.1">
+    <line x1="0" y1="135" x2="1200" y2="135" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="270" x2="1200" y2="270" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="405" x2="1200" y2="405" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="540" x2="1200" y2="540" stroke="white" stroke-width="1"/>
+    <line x1="240" y1="0" x2="240" y2="675" stroke="white" stroke-width="1"/>
+    <line x1="480" y1="0" x2="480" y2="675" stroke="white" stroke-width="1"/>
+    <line x1="720" y1="0" x2="720" y2="675" stroke="white" stroke-width="1"/>
+    <line x1="960" y1="0" x2="960" y2="675" stroke="white" stroke-width="1"/>
+  </g>
+  
+  <!-- Main content -->
+  <g transform="translate(600, 337.5)">
+    <!-- Invitation card icon -->
+    <rect x="-120" y="-100" width="240" height="160" rx="8" fill="white" opacity="0.95"/>
+    <rect x="-100" y="-75" width="200" height="8" rx="4" fill="#667eea" opacity="0.7"/>
+    <rect x="-100" y="-55" width="150" height="6" rx="3" fill="#764ba2" opacity="0.5"/>
+    <rect x="-100" y="-40" width="180" height="6" rx="3" fill="#764ba2" opacity="0.5"/>
+    <circle cx="0" cy="10" r="25" fill="#667eea" opacity="0.2"/>
+    <path d="M-8 10 L -3 15 L 8 4" stroke="#667eea" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  
+  <!-- Project title -->
+  <text x="600" y="480" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">
+    InviteKZ
+  </text>
+  <text x="600" y="520" font-family="Arial, sans-serif" font-size="20" fill="white" opacity="0.9" text-anchor="middle">
+    Event Invitation Platform
+  </text>
+</svg>
