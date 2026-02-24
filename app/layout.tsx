@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import HexBackground from "./components/HexBackground";
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -9,8 +10,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ru">
-      <body className="antialiased">
-        {children}
+      <body className="antialiased relative overflow-x-hidden">
+        <HexBackground />
+        <div className="relative z-10">{children}</div>
       </body>
     </html>
   );

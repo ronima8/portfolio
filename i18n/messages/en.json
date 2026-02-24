@@ -6,7 +6,7 @@
   },
   "Hero": {
     "title": "Hi — I am a Frontend Developer",
-    "description": "I build interfaces with a focus on performance and usability. Next.js + TypeScript + Tailwind.",
+    "description": "I build interfaces with a focus on performance and usability.",
     "cta": "My Projects"
   },
   "About": {
@@ -58,8 +58,11 @@
     "emailPlaceholder": "Email",
     "messagePlaceholder": "Message",
     "submit": "Send",
+    "sending": "Sending...",
     "success": "Sent!",
-    "error": "Please fill in all fields."
+    "error": "Could not send. Check your fields and try again.",
+    "rateLimited": "Too many requests. Please try again later.",
+    "botDetected": "Suspicious activity detected. Please try again later."
   },
   "Footer": {
     "builtWith": "built with Next.js",
