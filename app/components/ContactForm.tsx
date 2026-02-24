@@ -110,9 +110,9 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contact" className="py-12">
-      <div className="max-w-2xl mx-auto px-6">
-        <div className="bg-gray-900/80 border border-gray-800 rounded-sm backdrop-blur-sm px-6 py-8">
+    <section id="contact" className="py-10 sm:py-12">
+      <div className="max-w-2xl mx-auto px-4 sm:px-6">
+        <div className="bg-gray-900/80 border border-gray-800 rounded-sm backdrop-blur-sm px-4 sm:px-6 py-6 sm:py-8">
           <h3 className="text-xl font-medium text-emerald-300">{t("title")}</h3>
           <form
             onSubmit={(event) => {
@@ -121,21 +121,21 @@ const ContactForm = () => {
             }}
             className="mt-4 flex flex-col gap-3"
           >
-            <input name="name" required maxLength={100} placeholder={t("namePlaceholder")} className="border border-gray-800 rounded-sm bg-gray-950/70 px-3 py-2 text-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-400/40" />
-            <input name="email" required type="email" inputMode="email" maxLength={254} placeholder={t("emailPlaceholder")} className="border border-gray-800 rounded-sm bg-gray-950/70 px-3 py-2 text-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-400/40" />
-            <textarea name="message" required minLength={10} maxLength={2500} rows={4} placeholder={t("messagePlaceholder")} className="border border-gray-800 rounded-sm bg-gray-950/70 px-3 py-2 text-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-400/40" />
+            <input name="name" required maxLength={100} placeholder={t("namePlaceholder")} className="border border-gray-800 rounded-sm bg-gray-950/70 px-3 py-2 text-sm sm:text-base text-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-400/40" />
+            <input name="email" required type="email" inputMode="email" maxLength={254} placeholder={t("emailPlaceholder")} className="border border-gray-800 rounded-sm bg-gray-950/70 px-3 py-2 text-sm sm:text-base text-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-400/40" />
+            <textarea name="message" required minLength={10} maxLength={2500} rows={4} placeholder={t("messagePlaceholder")} className="border border-gray-800 rounded-sm bg-gray-950/70 px-3 py-2 text-sm sm:text-base text-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-400/40" />
             <input
               name="company"
               tabIndex={-1}
               autoComplete="off"
               aria-hidden="true"
-              className="absolute left-[-9999px] top-auto w-px h-px opacity-0 pointer-events-none"
+              className="absolute w-px h-px p-0 m-[-1px] overflow-hidden whitespace-nowrap border-0 [clip:rect(0,0,0,0)] pointer-events-none"
             />
-            <div className="flex items-center gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="bg-emerald-400 text-black rounded-sm px-4 py-2 border border-emerald-300/60 hover:bg-emerald-300 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                className="w-full sm:w-auto bg-emerald-400 text-black rounded-sm px-4 py-2 border border-emerald-300/60 hover:bg-emerald-300 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 {status === "sending" ? t("sending") : t("submit")}
               </button>
