@@ -11,6 +11,10 @@ const MIN_FILL_TIME_MS = 3500;
 const RATE_LIMIT_KEY = "contact_form_submissions_v1";
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 const RATE_LIMIT_MAX_REQUESTS = 3;
+const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+const HAS_EMAILJS_CONFIG = Boolean(EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID && EMAILJS_PUBLIC_KEY);
 
 const readRecentSubmissions = () => {
   if (typeof window === "undefined") return [] as number[];
@@ -35,7 +39,7 @@ const writeRecentSubmissions = (timestamps: number[]) => {
 
 const ContactForm = () => {
   const t = useTranslations("Contact");
-  const [status, setStatus] = useState<null | "ok" | "error" | "sending" | "rate" | "bot">(null);
+  const [status, setStatus] = useState<null | "ok" | "invalid" | "error" | "sending" | "rate" | "bot" | "config">(null);
   const openedAtRef = useRef<number>(0);
 
   useEffect(() => {
@@ -61,12 +65,12 @@ const ContactForm = () => {
     }
 
     if (!name || !email || !message) {
-      setStatus("error");
+      setStatus("invalid");
       return;
     }
 
     if (!EMAIL_REGEX.test(email) || message.length < MIN_MESSAGE_LENGTH || message.length > MAX_MESSAGE_LENGTH) {
-      setStatus("error");
+      setStatus("invalid");
       return;
     }
 
@@ -79,25 +83,21 @@ const ContactForm = () => {
     setStatus("sending");
 
     try {
-      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-
-      if (!serviceId || !templateId || !publicKey) {
-        setStatus("error");
+      if (!HAS_EMAILJS_CONFIG || !EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+        setStatus("config");
         return;
       }
 
       await emailjs.send(
-        serviceId,
-        templateId,
+        "service_81fgcdg",
+        "template_zup2qt5",
         {
           from_name: name,
           reply_to: email,
           message,
         },
         {
-          publicKey,
+          publicKey: "qr3VFqeE0OmV-2-5B",
         }
       );
 
@@ -129,18 +129,20 @@ const ContactForm = () => {
               tabIndex={-1}
               autoComplete="off"
               aria-hidden="true"
-              className="absolute w-px h-px p-0 m-[-1px] overflow-hidden whitespace-nowrap border-0 [clip:rect(0,0,0,0)] pointer-events-none"
+              className="absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0 [clip:rect(0,0,0,0)] pointer-events-none"
             />
             <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
               <button
                 type="submit"
-                disabled={status === "sending"}
+                disabled={status === "sending" || !HAS_EMAILJS_CONFIG}
                 className="w-full sm:w-auto bg-emerald-400 text-black rounded-sm px-4 py-2 border border-emerald-300/60 hover:bg-emerald-300 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 {status === "sending" ? t("sending") : t("submit")}
               </button>
               {status === "ok" && <span className="text-sm text-emerald-300">{t("success")}</span>}
+              {status === "invalid" && <span className="text-sm text-amber-300">{t("invalid")}</span>}
               {status === "error" && <span className="text-sm text-rose-400">{t("error")}</span>}
+              {status === "config" && <span className="text-sm text-amber-300">{t("configError")}</span>}
               {status === "rate" && <span className="text-sm text-amber-300">{t("rateLimited")}</span>}
               {status === "bot" && <span className="text-sm text-amber-300">{t("botDetected")}</span>}
             </div>

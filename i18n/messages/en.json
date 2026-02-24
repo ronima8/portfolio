@@ -60,7 +60,9 @@
     "submit": "Send",
     "sending": "Sending...",
     "success": "Sent!",
-    "error": "Could not send. Check your fields and try again.",
+    "invalid": "Please check your input fields and try again.",
+    "error": "Could not send your message. Please try again later.",
+    "configError": "The form is not configured yet. Add EmailJS keys to .env.local and restart the app.",
     "rateLimited": "Too many requests. Please try again later.",
     "botDetected": "Suspicious activity detected. Please try again later."
   },
