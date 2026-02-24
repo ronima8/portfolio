@@ -1,0 +1,68 @@
+{
+  "Header": {
+    "about": "Обо мне",
+    "projects": "Проекты",
+    "contact": "Контакты"
+  },
+  "Hero": {
+    "title": "Привет — я Frontend-разработчик",
+    "description": "Создаю интерфейсы с фокусом на производительность и удобство. Next.js + TypeScript + Tailwind.",
+    "cta": "Мои проекты"
+  },
+  "About": {
+    "title": "О себе",
+    "description": "Краткое описание: опыт в создании SPA и SSR-приложений, практическая работа с Next.js, TypeScript и Tailwind. Люблю чистую архитектуру и простые интерфейсы."
+  },
+  "Skills": {
+    "title": "Навыки",
+    "groups": [
+      {
+        "category": "Языки",
+        "items": ["JavaScript", "TypeScript", "HTML", "CSS"]
+      },
+      {
+        "category": "Фреймворки и библиотеки",
+        "items": ["React", "Next.js", "Node.js", "Nest.js", "TypeORM", "Tailwind CSS", "Axios", "Zustand"]
+      },
+      {
+        "category": "Базы данных",
+        "items": ["PostgreSQL"]
+      },
+      {
+        "category": "Инструменты и практики",
+        "items": ["Git", "GitHub", "Docker", "Nginx", "REST API", "JWT", "ESLint", "Prettier", "Playwright", "Vitest", "Jest"]
+      }
+    ]
+  },
+  "Projects": {
+    "title": "Проекты"
+  },
+  "ProjectCard": {
+    "presentation": "Презентация",
+    "repository": "Репозиторий",
+    "liveDemo": "Live Demo",
+    "items": {
+      "invitekz": {
+        "title": "InviteKZ",
+        "description": "Платформа для создания и управления электронными приглашениями на события. Полнофункциональное веб-приложение с современным стеком технологий и автоматизированным CI/CD."
+      },
+      "portfolio": {
+        "title": "Сайт-портфолио",
+        "description": "Личный сайт-портфолио с информацией обо мне, навыках, проектах и формой обратной связи. Адаптивный интерфейс, оптимизированная производительность и аккуратная структура компонентов."
+      }
+    }
+  },
+  "Contact": {
+    "title": "Связаться",
+    "namePlaceholder": "Имя",
+    "emailPlaceholder": "Email",
+    "messagePlaceholder": "Сообщение",
+    "submit": "Отправить",
+    "success": "Отправлено!",
+    "error": "Заполните все поля."
+  },
+  "Footer": {
+    "builtWith": "создано на Next.js",
+    "rights": "Все права защищены."
+  }
+}

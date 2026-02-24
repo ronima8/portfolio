@@ -1,13 +1,5 @@
-import { Hero, About, Skills, Projects, ContactForm } from "./components";
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  return (
-    <>
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <ContactForm />
-    </>
-  );
+  redirect("/ru");
 }

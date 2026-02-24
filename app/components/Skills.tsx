@@ -1,27 +1,17 @@
 'use client'
 
 import { useRef, useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
-const skills = [
-  {
-    category: "Языки",
-    items: ["JavaScript", "TypeScript", "HTML", "CSS"]
-  },
-  {
-    category: "Фреймворки и библиотеки",
-    items: ["React", "Next.js", "Node.js", "Nest.js", "TypeORM", "Tailwind CSS", "Axios", "Zustand"]
-  },
-  {
-    category: "Базы данных",
-    items: ["PostgreSQL"]
-  },
-  {
-    category: "Инструменты и практики",
-    items: ["Git", "GitHub", "Docker", "Nginx", "REST API", "JWT", "ESLint", "Prettier", "Playwright", "Vitest", "Jest"]
-  }
-];
+type SkillGroup = {
+  category: string;
+  items: string[];
+};
 
 export default function Skills() {
+  const t = useTranslations("Skills");
+  const skillGroups = t.raw("groups") as SkillGroup[];
+
   const sectionRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -52,10 +42,10 @@ export default function Skills() {
                 : "opacity-0 -translate-x-16"
             }`}
           >
-            Навыки
+            {t("title")}
           </h3>
           <div className="mt-5 space-y-5">
-            {skills.map((group, groupIndex) => (
+            {skillGroups.map((group, groupIndex) => (
               <div
                 key={group.category}
                 className={`transition-all duration-700 ease-out transform-gpu will-change-transform ${

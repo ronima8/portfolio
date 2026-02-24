@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 export default function ContactForm() {
+  const t = useTranslations("Contact");
   const [status, setStatus] = useState<null | "ok" | "error">(null);
 
   function onSubmit(e: React.FormEvent) {
@@ -27,15 +29,15 @@ export default function ContactForm() {
     <section id="contact" className="py-12">
       <div className="max-w-2xl mx-auto px-6">
         <div className="bg-gray-900/80 border border-gray-800 rounded-sm backdrop-blur-sm px-6 py-8">
-          <h3 className="text-xl font-medium text-emerald-300">Связаться</h3>
+          <h3 className="text-xl font-medium text-emerald-300">{t("title")}</h3>
           <form onSubmit={onSubmit} className="mt-4 flex flex-col gap-3">
-            <input name="name" placeholder="Имя" className="border border-gray-800 rounded-sm bg-gray-950/70 px-3 py-2 text-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-400/40" />
-            <input name="email" placeholder="Email" className="border border-gray-800 rounded-sm bg-gray-950/70 px-3 py-2 text-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-400/40" />
-            <textarea name="message" rows={4} placeholder="Сообщение" className="border border-gray-800 rounded-sm bg-gray-950/70 px-3 py-2 text-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-400/40" />
+            <input name="name" placeholder={t("namePlaceholder")} className="border border-gray-800 rounded-sm bg-gray-950/70 px-3 py-2 text-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-400/40" />
+            <input name="email" placeholder={t("emailPlaceholder")} className="border border-gray-800 rounded-sm bg-gray-950/70 px-3 py-2 text-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-400/40" />
+            <textarea name="message" rows={4} placeholder={t("messagePlaceholder")} className="border border-gray-800 rounded-sm bg-gray-950/70 px-3 py-2 text-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-400/40" />
             <div className="flex items-center gap-4">
-              <button type="submit" className="bg-emerald-400 text-black rounded-sm px-4 py-2 border border-emerald-300/60 hover:bg-emerald-300 transition-colors">Отправить</button>
-              {status === "ok" && <span className="text-sm text-emerald-300">Отправлено!</span>}
-              {status === "error" && <span className="text-sm text-rose-400">Заполните все поля.</span>}
+              <button type="submit" className="bg-emerald-400 text-black rounded-sm px-4 py-2 border border-emerald-300/60 hover:bg-emerald-300 transition-colors">{t("submit")}</button>
+              {status === "ok" && <span className="text-sm text-emerald-300">{t("success")}</span>}
+              {status === "error" && <span className="text-sm text-rose-400">{t("error")}</span>}
             </div>
           </form>
         </div>

@@ -1,19 +1,16 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Header, Footer } from "./components";
 
 export const metadata: Metadata = {
-  title: "Your Name — Portfolio",
-  description: "Personal portfolio built with Next.js",
+  title: "Portfolio",
+  description: "Personal portfolio",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="ru">
       <body className="antialiased">
-        <Header />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
+        {children}
       </body>
     </html>
   );

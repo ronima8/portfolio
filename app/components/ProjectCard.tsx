@@ -2,10 +2,12 @@
 
 import { useRef, useEffect, useState } from "react";
 import type { Project } from "../../types/project";
+import { useTranslations } from "next-intl";
 
 export default function ProjectCard({ project, index }: { project: Project; index: number }) {
   const cardRef = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
+  const t = useTranslations("ProjectCard");
 
   useEffect(() => {
     const node = cardRef.current;
@@ -39,8 +41,8 @@ export default function ProjectCard({ project, index }: { project: Project; inde
           ${!isEven ? "lg:order-2" : ""}
         `}
       >
-        <h3 className="text-2xl font-bold mb-3 text-emerald-300">{project.title}</h3>
-        <p className="text-gray-300 mb-6 leading-relaxed">{project.description}</p>
+        <h3 className="text-2xl font-bold mb-3 text-emerald-300">{t(`items.${project.id}.title`)}</h3>
+        <p className="text-gray-300 mb-6 leading-relaxed">{t(`items.${project.id}.description`)}</p>
         
         {/* Технологии по категориям */}
         <div className="space-y-4 mb-6">
@@ -70,7 +72,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
               rel="noreferrer" 
               className="px-4 py-2 bg-emerald-400 text-black rounded-sm text-sm hover:bg-emerald-300 transition-colors border border-emerald-300/60"
             >
-              Презентация
+              {t("presentation")}
             </a>
           )}
           {project.repo && (
@@ -80,7 +82,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
               rel="noreferrer" 
               className="px-4 py-2 border border-emerald-400/40 rounded-sm text-sm text-emerald-200 hover:bg-emerald-500/10 transition-colors"
             >
-              Репозиторий
+              {t("repository")}
             </a>
           )}
           {project.href && (
@@ -90,7 +92,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
               rel="noreferrer" 
               className="px-4 py-2 border border-teal-400/40 rounded-sm text-sm text-teal-200 hover:bg-teal-500/10 transition-colors"
             >
-              Live Demo
+              {t("liveDemo")}
             </a>
           )}
         </div>

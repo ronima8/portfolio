@@ -1,0 +1,68 @@
+{
+  "Header": {
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "title": "Hi — I am a Frontend Developer",
+    "description": "I build interfaces with a focus on performance and usability. Next.js + TypeScript + Tailwind.",
+    "cta": "My Projects"
+  },
+  "About": {
+    "title": "About Me",
+    "description": "Short summary: experience building SPA and SSR applications, hands-on work with Next.js, TypeScript, and Tailwind. I value clean architecture and simple interfaces."
+  },
+  "Skills": {
+    "title": "Skills",
+    "groups": [
+      {
+        "category": "Languages",
+        "items": ["JavaScript", "TypeScript", "HTML", "CSS"]
+      },
+      {
+        "category": "Frameworks & Libraries",
+        "items": ["React", "Next.js", "Node.js", "Nest.js", "TypeORM", "Tailwind CSS", "Axios", "Zustand"]
+      },
+      {
+        "category": "Databases",
+        "items": ["PostgreSQL"]
+      },
+      {
+        "category": "Tools & Practices",
+        "items": ["Git", "GitHub", "Docker", "Nginx", "REST API", "JWT", "ESLint", "Prettier", "Playwright", "Vitest", "Jest"]
+      }
+    ]
+  },
+  "Projects": {
+    "title": "Projects"
+  },
+  "ProjectCard": {
+    "presentation": "Presentation",
+    "repository": "Repository",
+    "liveDemo": "Live Demo",
+    "items": {
+      "invitekz": {
+        "title": "InviteKZ",
+        "description": "A platform for creating and managing digital invitations for events. A full-featured web app with a modern stack and automated CI/CD."
+      },
+      "portfolio": {
+        "title": "Portfolio Website",
+        "description": "A personal portfolio website with info about me, skills, projects, and a contact form. It includes responsive UI, performance optimization, and clean component structure."
+      }
+    }
+  },
+  "Contact": {
+    "title": "Get in touch",
+    "namePlaceholder": "Name",
+    "emailPlaceholder": "Email",
+    "messagePlaceholder": "Message",
+    "submit": "Send",
+    "success": "Sent!",
+    "error": "Please fill in all fields."
+  },
+  "Footer": {
+    "builtWith": "built with Next.js",
+    "rights": "All rights reserved."
+  }
+}
