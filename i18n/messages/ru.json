@@ -5,32 +5,44 @@
     "contact": "Контакты"
   },
   "Hero": {
-    "title": "Привет — я Frontend-разработчик",
+    "title": "Привет — я Fullstack JavaScript-разработчик",
     "description": "Создаю интерфейсы с фокусом на производительность и удобство.",
     "cta": "Мои проекты"
   },
   "About": {
     "title": "О себе",
-    "description": "Краткое описание: опыт в создании SPA и SSR-приложений, практическая работа с Next.js, TypeScript и Tailwind. Люблю чистую архитектуру и простые интерфейсы."
+    "description": "Я Fullstack-разработчик на JavaScript. Работаю с современным стеком: Next.js, NestJS, PostgreSQL. Окончил школу программирования Attractor School Almaty, где получил практический опыт разработки веб-приложений полного цикла. Также завершил обучение в Алматинском университете энергетики и связи по специальности «Автоматизация и управление». Инженерное образование дало мне прочную базу в алгоритмическом мышлении и опыт работы с языком LAD, что помогает выстраивать структурированные и надежные решения в разработке."
   },
   "Skills": {
     "title": "Навыки",
     "groups": [
       {
         "category": "Языки",
-        "items": ["JavaScript", "TypeScript", "HTML", "CSS"]
+        "items": ["JavaScript (ES6+)", "TypeScript", "Interfaces / Types", "Union types", "HTML", "CSS"]
       },
       {
         "category": "Фреймворки и библиотеки",
-        "items": ["React", "Next.js", "Node.js", "Nest.js", "TypeORM", "Tailwind CSS", "Axios", "Zustand"]
+        "items": ["React", "React Hooks", "Custom hooks", "Next.js (App Router, Pages Router)", "SSR / SSG / CSR", "Client / Server Components", "Node.js", "NestJS (Controllers, Services, Guards)", "TypeORM", "Redux / RTK", "Zustand", "Axios", "Fetch API"]
       },
       {
-        "category": "Базы данных",
-        "items": ["PostgreSQL"]
+        "category": "Бэкенд и базы данных",
+        "items": ["REST API", "JWT authentication", "Cookies (httpOnly)", "PostgreSQL", "CRUD"]
+      },
+      {
+        "category": "UI / Styling",
+        "items": ["Tailwind CSS", "Material UI", "Ant Design", "SCSS", "SASS", "Flexbox", "Grid"]
       },
       {
         "category": "Инструменты и практики",
-        "items": ["Git", "GitHub", "Docker", "Nginx", "REST API", "JWT", "ESLint", "Prettier", "Playwright", "Vitest", "Jest"]
+        "items": ["Git", "GitLab", "GitHub", "Feature branches", "Merge Requests", "Code review", "Conventional Commits", "Husky", "Docker", "CI/CD (GitLab)", "Nginx", "ESLint", "Prettier", "Playwright", "Vitest", "Jest"]
+      },
+      {
+        "category": "Soft Skills",
+        "items": ["Командная работа", "Самообучаемость", "Проектные навыки (end-to-end)", "Тайм-менеджмент", "Работа в условиях дедлайнов"]
+      },
+      {
+        "category": "Mobile dev",
+        "items": ["React Native (ознакомлен)", "Expo (ознакомлен)"]
       }
     ]
   },

@@ -25,7 +25,7 @@ export default function Skills() {
           observer.disconnect();
         }
       },
-      { threshold: 1 }
+      { threshold: 0.15 }
     );
     observer.observe(node);
     return () => observer.disconnect();

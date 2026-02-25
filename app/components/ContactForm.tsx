@@ -89,15 +89,15 @@ const ContactForm = () => {
       }
 
       await emailjs.send(
-        "service_81fgcdg",
-        "template_zup2qt5",
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
         {
           from_name: name,
           reply_to: email,
           message,
         },
         {
-          publicKey: "qr3VFqeE0OmV-2-5B",
+          publicKey: EMAILJS_PUBLIC_KEY,
         }
       );
 
