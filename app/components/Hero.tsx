@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useTranslations } from "next-intl";
 
 export default function Hero() {
@@ -16,12 +17,22 @@ export default function Hero() {
           <p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
             {t("description")}
           </p>
-          <a 
-            href="#projects" 
-            className="inline-block mt-8 sm:mt-10 rounded-sm bg-emerald-400 text-black px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base font-medium no-underline hover:bg-emerald-300 transition-colors shadow-md shadow-emerald-500/20 border border-emerald-300/60"
-          >
-            {t("cta")}
-          </a>
+          <div className="mt-8 sm:mt-10 flex items-center justify-center gap-3 flex-wrap">
+            <a
+              href="#projects"
+              className="inline-block rounded-sm bg-emerald-400 text-black px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base font-medium no-underline hover:bg-emerald-300 transition-colors shadow-md shadow-emerald-500/20 border border-emerald-300/60"
+            >
+              {t("cta")}
+            </a>
+            <Link
+              href="/resume.pdf"
+              download
+              className="inline-flex items-center gap-2 rounded-sm border border-emerald-400/45 bg-gray-900/65 text-emerald-200 px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-medium hover:border-emerald-300/70 hover:text-emerald-100 transition-colors"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M5 20h14v-2H5v2zM12 2v12.2l3.6-3.6L17 12l-5 5-5-5 1.4-1.4 3.6 3.6V2h2z"/></svg>
+              <span>{t("resume")}</span>
+            </Link>
+          </div>
         </div>
       </div>
     </section>

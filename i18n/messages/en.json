@@ -7,7 +7,8 @@
   "Hero": {
     "title": "Hi — I am a Fullstack JavaScript Developer",
     "description": "I build interfaces with a focus on performance and usability.",
-    "cta": "My Projects"
+    "cta": "My Projects",
+    "resume": "Download Resume"
   },
   "About": {
     "title": "About Me",
